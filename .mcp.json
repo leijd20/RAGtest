@@ -3,6 +3,10 @@
     "lightrag": {
       "command": "python",
       "args": ["-u", "mcp_server.py"]
+    },
+    "lightrag_mcp": {
+      "command": "python",
+      "args": ["-u", "mcp_server_sdk_version.py"]
     }
   }
 }
