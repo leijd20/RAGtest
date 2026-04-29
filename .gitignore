@@ -15,8 +15,8 @@ ENV/
 *.log
 mcp_debug.log
 
-# LightRAG data
-LightRAG/dickens/
+# LightRAG (embedded git repository)
+LightRAG/
 
 # IDE
 .vscode/
