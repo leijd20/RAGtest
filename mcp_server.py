@@ -5,6 +5,7 @@ import json
 import asyncio
 import httpx
 import io
+import re
 
 # Windows UTF-8 encoding fix
 if sys.platform == 'win32':
@@ -115,16 +116,30 @@ class MCPServer:
     async def query(self, query, mode="hybrid"):
         """Query knowledge base"""
         try:
-            # Fix encoding issues
-            query = query.encode('utf-8', errors='surrogateescape').decode('utf-8', errors='replace')
+            # Fix encoding issues in query
+            if isinstance(query, str):
+                query = query.encode('utf-8', errors='surrogateescape').decode('utf-8', errors='replace')
 
             response = await self.client.post(
                 f"{LIGHTRAG_API}/query",
                 json={"query": query, "mode": mode}
             )
             response.raise_for_status()
-            return response.json().get("response", "No response")
+
+            # Get raw response text and clean it
+            raw_text = response.text
+            # Remove problematic characters
+            import re
+            # Remove surrogate pairs and other problematic Unicode
+            cleaned_text = re.sub(r'[\udc80-\udcff]', '', raw_text)
+
+            # Parse cleaned JSON
+            data = json.loads(cleaned_text)
+            result = data.get("response", "No response")
+
+            return result
         except Exception as e:
+            log(f"Query error: {e}")
             return f"Error: {str(e)}"
 
     async def insert(self, text):
