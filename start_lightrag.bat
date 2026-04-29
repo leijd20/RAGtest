@@ -3,7 +3,7 @@ echo ========================================
 echo Starting LightRAG Server
 echo ========================================
 
-cd /d D:\GKXTwork\agent_dev\RAGtest\LightRAG
+cd /d "%~dp0LightRAG"
 set PATH=%USERPROFILE%\.local\bin;%PATH%
 set PYTHONIOENCODING=utf-8
 

@@ -1,10 +1,10 @@
 {
   "mcpServers": {
     "lightrag": {
-      "command": "D:\\miniconda3\\python.exe",
+      "command": "python",
       "args": [
         "-u",
-        "D:\\GKXTwork\\agent_dev\\RAGtest\\lightrag_mcp_server_fixed.py"
+        "lightrag_mcp_server_fixed.py"
       ]
     }
   }
