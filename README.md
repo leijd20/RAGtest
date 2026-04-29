@@ -91,9 +91,10 @@ RAGtest/
 ├── LightRAG/                           # LightRAG源码和数据
 │   ├── .env                            # LLM/Embedding配置
 │   └── rag_storage/                    # 知识库存储
-├── lightrag_mcp_server_fixed.py        # MCP服务器（修复中文编码）
+├── mcp_server.py                       # MCP服务器
 ├── .mcp.json                           # MCP配置文件
 ├── start_lightrag.bat                  # Windows启动脚本
+└── README.md                           # 本文件
 ```
 
 ## MCP工具说明
@@ -187,7 +188,7 @@ where python
 
 **中文查询乱码：**
 
-确保使用 `lightrag_mcp_server_fixed.py`（已修复编码问题）。
+确保使用 `mcp_server.py`（已修复编码问题）。
 
 ### 3. 查看调试日志
 
