@@ -43,7 +43,7 @@ class MCPServer:
                     }
                 }
 
-            elif method == "initialized":
+            elif method == "initialized" or method == "notifications/initialized":
                 return None  # Notification, no response
 
             elif method == "tools/list":
