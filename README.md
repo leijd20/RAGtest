@@ -176,7 +176,7 @@ where python
   "mcpServers": {
     "lightrag": {
       "command": "C:\\Python311\\python.exe",
-      "args": ["-u", "lightrag_mcp_server_fixed.py"]
+      "args": ["-u", "mcp_server.py"]
     }
   }
 }
